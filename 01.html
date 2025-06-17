@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            background-color: skyblue;
+            display: inline-block;
+            padding: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 結構 -->
+    <h1>Vue example</h1>
+
+    <!-- 渲染區塊 -->
+    <div id="app">
+        {{msg}}
+    </div>
+
+    <!-- vue的cdn -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js">
+    </script>
+
+    <script>
+        const app = Vue.createApp({
+            //定義資料
+            //函式
+            data() {
+                return {
+                    msg: 'Hello,Vue'
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
