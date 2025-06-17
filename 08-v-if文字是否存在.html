@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 動態背景色</title>
+    <style>
+        #app {
+            background-color: skyblue;
+            padding: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 渲染區 -->
+    <div id="app">
+        <p v-if="str1.includes(search)">'{{ search }}' 存在</p>
+        <p v-else>'{{ search }}' 不存在</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    // 搜尋範圍
+                    str1: 'HTML,CSS,JS, REACT, VUE',
+
+                    // 被搜尋
+                    search: "123"
+                };
+            }
+        });
+
+        app.mount("#app");
+    </script>
+</body>
+
+</html>

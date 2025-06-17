@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 判斷圖片顯示</title>
+  <style>
+    #app {
+      display: inline-block;
+      padding: 20px;
+    }
+
+    img {
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div v-if="picName.includes('img1')">
+      <img src="./images/img1.jpg" alt="Image 1">
+    </div>
+    <div v-else-if="picName.includes('img2')">
+      <img src="./images/img2.jpg" alt="Image 2">
+    </div>
+    <div v-else>
+      <p>沒有對應圖片</p>
+    </div>
+  </div>
+
+  <!-- Vue 3 CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          picName: 'img2' // 你可以改成 'img2' 或 '其他字串' 來測試
+        }
+      }
+    });
+
+    app.mount('#app');
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vue Img Example</title>
+    <style>
+        #app > div {
+            border: 1px dashed #333;
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 10px;
+        }
+
+        figure {
+            width: 100px;
+            padding: 10px;
+            margin: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+        }
+
+        figcaption {
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <div>
+            <figure v-for="(x, index) in arrImages" :key="index">
+                <img :src="x.picUrl" alt="" />
+                <figcaption>{{ x.picName }}</figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    arrImages: [
+                        { picName: 'pic1', picUrl: './images/img1.jpg' },
+                        { picName: 'pic2', picUrl: './images/img2.jpg' }  // 修正 picUr -> picUrl
+                    ]
+                }
+            }
+        })
+
+        app.mount('#app')
+    </script>
+
+</body>
+
+</html>

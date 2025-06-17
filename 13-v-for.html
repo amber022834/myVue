@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vue Img Example</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <ul>
+      <li v-for="item in arr1" :key="item">{{ item }}</li>
+    </ul>
+
+    <p>圖片路徑陣列 (arr2) 直接放完整路徑</p>
+    <div>
+      <img v-for="x in arr2" :key="x" :src="x" alt="" style="width: 200px; margin-right: 10px" />
+    </div>
+
+    <p>名稱陣列 (arr3)，動態組合路徑</p>
+    <div>
+      <img v-for="y in arr3" :key="y" :src="`./images/${y}.jpg`" alt="" style="width: 200px; margin-right: 10px" />
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          arr1: ['a', 'b', 'c'],
+          arr2: [
+            './images/img1.jpg',
+            './images/img2.jpg',
+          ],
+          arr3: [
+            'img1',
+            'img2',
+          ],
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+
+</body>
+
+</html>

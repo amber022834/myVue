@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 動態背景色</title>
+    <style>
+        #app>div {
+            border: 1px dashed #aaa;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用三元運算 -->
+        <div v-bind:style="{ backgroundColor: isCheck ? 'yellow' : 'skyblue' }">
+            變色區
+        </div>
+
+        <!-- 簡化綁定指令寫法 v-bind可以省略-->
+        <div :style="{ backgroundColor: isCheck ? 'yellow' : 'skyblue' }"></div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    isCheck: false
+                };
+            }
+        });
+
+        app.mount("#app");
+    </script>
+</body>
+
+</html>

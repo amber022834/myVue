@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vue Img Example</title>
+  <style>
+    table {
+      border: 1px dashed #333;
+      width: 50%;
+      
+    }
+
+    tr:nth-child(odd) {
+      background-color: bisque;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <table>
+      <thead>
+        <tr style="background-color: white;">
+          <th>編號</th>
+          <th>書名</th>
+          <th>售價</th>
+          <th>作者</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr v-for="(x, index) in arrBooks" :key="index">
+          <td>{{ index + 1 }}</td>
+          <td>{{ x.bookName }}</td>
+          <td>{{ x.bookPrice }}</td>
+          <td>{{x.bookAuth}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          arrBooks: [
+            { bookName: 'HTML', bookPrice: 500, bookAuth: 'demo1' },
+            { bookName: 'CSS', bookPrice: 600, bookAuth: 'demo2' },
+            { bookName: 'JS', bookPrice: 800, bookAuth: 'demo3' }
+          ]
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
