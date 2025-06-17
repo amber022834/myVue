@@ -17,7 +17,14 @@
 
 <body>
 
-    
+    <h1>v-bind綁定文字大小</h1>
+    <div id="app">
+        <!-- html寫法 -->
+        <div style="font-size: 32px;">綁定文字大小</div>
+
+        <!-- v-bind綁定 -->
+        <div v-bind:style="{fontSize:size}">綁定文字大小</div>
+    </div>
 
 
     <!-- vue的cdn -->
@@ -25,10 +32,10 @@
     </script>
 
     <script>
-        const app=Vue.createApp({
-            data(){
-                return{
-                    
+        const app = Vue.createApp({
+            data() {
+                return {
+                    size: "40px"
                 }
             }
         })
